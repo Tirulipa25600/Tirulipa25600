@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function somar(){
+            const n1 = document.getElementById("n1").value;
+            const n2 = document.getElementById("n2").value;
+            const soma = Number(n1) + Number(n2);
+            console.log("A soma dos números é: " + soma);
+            resultado.innerHTML = "A soma dos números é: " + soma;
+        }
+
+        function subtrair(){
+            const n1 = document.getElementById("n1").value;
+            const n2 = document.getElementById("n2").value;
+            const subtrair = Number(n1) - Number(n2);
+            console.log("A subtração dos números é: " + subtrair);
+            resultado.innerHTML = "A subtração dos números é: " + subtrair;
+        }
+
+        function multiplicar(){
+            const n1 = document.getElementById("n1").value;
+            const n2 = document.getElementById("n2").value;
+            const multiplicar = Number(n1) * Number(n2);
+            console.log("A multiplicação dos números é: " + multiplicar);
+            resultado.innerHTML = "A multiplicação dos números é: " + multiplicar;
+        }
+
+        function divisao(){
+            const n1 = document.getElementById("n1").value;
+            const n2 = document.getElementById("n2").value;
+            const divisao = Number(n1) / Number(n2);
+            console.log("A divisão dos números é: " + divisao);
+            resultado.innerHTML = "A divisão dos números é: " + divisao;
+        }
+
+        function apagar(){
+            document.getElementById("n1").value = "";
+            document.getElementById("n2").value = "";
+            document.getElementById("resultado").innerText = "Apagado... ";
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <h2>N1: <input type="text" id="n1"/></h2>
+        <h2>N2: <input type="text" id="n2"/></h2>
+
+        <input type="button" value="Somar" onclick="somar()"></input>
+        <input type="button" value="Subtrair" onclick="subtrair()"></input>
+        <input type="button" value="Multiplicar" onclick="multiplicar()"></input>
+        <input type="button" value="Divisão" onclick="divisao()"></input>
+        <input type="button" valua="Apagar" onclick="apagar()"></input>
+        <h1 id="resultado">O resultado dos números é: </h1>
+    </form>
+    
+</body>
+</html>

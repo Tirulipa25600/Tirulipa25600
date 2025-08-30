@@ -1,0 +1,20 @@
+Classe é um template ou um desenho ou ainda um 
+molde de um objeto do mundo real.
+
+Atributos é aquilo que a nossa classe tem, ou 
+seja o que define a classe.
+
+Nome de variaveis e de metodos sempre começam 
+com letra minúscula, sem epaço, sem acento, sem 
+ç, não pode ter caracteres especiais e não pode 
+começar com números. Quando o nome for composto 
+a primeira letra ds palavras seguintes será 
+maiúscula.
+
+ex: dataNascimento, nome, idade, diaDaSemana, 
+telefoneComercial
+
+Nome de classe sempre começa com a letra 
+maiúscula.
+ex: ContaCorrente, Agencia
+Padrão camelCase
