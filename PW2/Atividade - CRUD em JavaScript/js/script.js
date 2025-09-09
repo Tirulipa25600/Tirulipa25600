@@ -2,8 +2,17 @@ const modal = document.querySelector(".modal-container");
 const tbody = document.querySelector("tbody");
 const sNome = document.querySelector("#m-nome");
 const sFuncao = document.querySelector("#m-funcao");
+const sEndereco = document.querySelector("#m-endereco");
+const sRua = document.querySelector("#m-rua");
+const sBairro = document.querySelector("#m-bairro");
+const sNumero = document.querySelector("#m-numero");
+const sCep = document.querySelector("#m-cep");
+const sUf = document.querySelector("#m-uf");
+const sCidade = document.querySelector("#m-cidade");
 const sSalario = document.querySelector("#m-salario");
 const btnSalvar = document.querySelector("#btnSalvar");
+
+//endereco, rua, numero, bairro, cep, cidade, uf
 
 let itens = [];
 let id;
@@ -20,12 +29,28 @@ function openModal(edit = false, index = 0) {
     if (edit) {
         sNome.value = itens[index].nome;
         sFuncao.value = itens[index].funcao;
-        sSalario.value = itens[index].salario;
+        sSalario.value = itens[index].salario;        
+        sEndereco.value = itens[index].endereco;
+        sRua.value = itens[index].rua;
+        sNumero.value = itens[index].numero;
+        sBairro.value = itens[index].bairro;
+        sCep.value = itens[index].cep;
+        sCidade.value = itens[index].cidade;
+        sUf.value = itens[index].uf;
+
         id = index;
     } else {
         sNome.value = "";
         sFuncao.value = "";
-        sSalario.value = "";
+        sSalario.value = "";        
+        sEndereco.value = "";
+        sRua.value = "";
+        sNumero.value = "";
+        sBairro.value = "";
+        sCep.value = "";
+        sCidade.value = "";
+        sUf.value = "";
+
     }
 }
 
@@ -46,6 +71,13 @@ function insertItem(item, index) {
         <th>${item.nome}</th>
         <th>${item.funcao}</th>
         <th>R$ ${item.salario}</th>
+        <th>${item.endereco}</th>
+        <th>${item.rua}</th>
+        <th>R$ ${item.numero}</th>
+        <th${item.bairro}</th>        
+        <th${item.cidade}</th>
+        <th>R$ ${item.cep}</th>
+        <th>${item.uf}</th>
         <th class="acao">
             <button onclick="editItem(${index})"><i class="bx bx-edit"></i></button>
         </th>
@@ -60,16 +92,42 @@ function insertItem(item, index) {
 btnSalvar.onclick = e => {
     e.preventDefault();
 
-    if (sNome.value == "" || sFuncao.value == "" || sSalario.value == "") {
+if (sNome.value == ""  
+        || sFuncao.value == "" 
+            || sSalario.value == "" 
+                || sEndereco.value == "" 
+                    || sRua.value == "" 
+                        || sNumero.value == "" 
+                            || sBairro.value == "" 
+                                || sCep.value == "" 
+                                    || sUf.value == ""
+                                        || sCidade.value == "") {
         return;
     }
 
     if (id !== undefined) {
         itens[id].nome = sNome.value;
         itens[id].funcao = sFuncao.value;
-        itens[id].salario = sSalario.value;
+        itens[id].salario = sSalario.value;        
+        itens[id].endereco = sEndereco.value;
+        itens[id].rua = sRua.value;
+        itens[id].numero = sNumero.value;
+        itens[id].bairro = sBairro.value;
+        itens[id].cep = sCep.value;
+        itens[id].uf = sUf.value;
+        itens[id].cidade = sCidade.value;
+
     } else {
-        itens.push({nome: sNome.value, funcao: sFuncao.value, salario: sSalario.value})
+        itens.push({nome: sNome.value, 
+                        funcao: sFuncao.value, 
+                            salario: sSalario.value, 
+                                endereco: sEndereco.value,
+                                    rua: sRua.value,
+                                        numero: sNumero.value,
+                                            bairro: sBairro.value,
+                                                cep: sCep.value,
+                                                    uf: sUf.value,
+                                                        cidade: sCidade.value})
     }
 
     setItensBD();
