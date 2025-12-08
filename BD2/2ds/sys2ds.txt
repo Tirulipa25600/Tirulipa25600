@@ -1,0 +1,128 @@
+create database bdpw3;
+use bdpw3;
+
+create table demo(
+    id auto_increment Primary kEY,
+   name varchar (80),
+    idade int (3),
+    cpf varchar (11),
+     abrir varchar (40),
+    dobrar varchar (40)
+    )
+
+
+Conexao.php
+<?php
+
+$username = "root";
+$password = "";
+
+$pdo = new PDO('mysql:host=localhost;dbname=bdpw3', $username, $password);
+
+?>
+
+
+Sistema2DS
+
+index.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiosque</title>
+    <link rel="stylesheet" type= "text/css" href="style.css">
+    
+</head>
+
+<?php 
+    //session_start(); 
+    include("conexao.php");
+?>
+
+<body>
+   
+
+         
+           <form action="inserirCheck.php" method="post">    
+                                                          
+   
+              <span class="padding-bottom--15" align="center">Entre na sua conta</span>
+              <form id="stripe-login">
+
+                <div class="field padding-bottom--24">
+                  <label for="email">Nome</label>
+                  <input type="text" name="name">
+                </div>
+
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label for="idade">Idade</label>
+                  </div>
+                  <input type="text" name="idade">
+                            </div>
+
+                <div class="field padding-bottom--24">
+                  <label for="cpf">CPF</label>
+                  <input type="text" name="cpf">
+                </div>         
+
+               
+
+                <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                  <label for="checkbox">
+                    <input type="checkbox" name="abrir">  Abrir os cadeados da lona
+                  </label>
+                </div>
+                
+                
+
+                <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                  <label for="checkbox">
+                    <input type="checkbox" name="dobrar">  dobrar lona
+                  </label>
+                </div>
+
+
+                <div class="field padding-bottom--salvar">
+                  <input type="submit" name="submit" class="btn btn-primary" value="Salvar ">
+                </div>
+
+
+                
+
+
+
+
+
+                
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+INSERIR 
+<?php 
+  
+    include("conexao.php");
+
+    $name = $_POST['name'];
+    $idade = $_POST['idade'];
+    $cpf = $_POST['cpf'];
+    $abrir = $_POST['abrir'];
+    $dobrar = $_POST['dobrar'];
+
+    $inserir = $pdo->prepare("insert into demo (name,idade,cpf, abrir,dobrar)
+                     values ('$name', '$idade', '$cpf',  '$abrir','$dobrar')");
+    $inserir->execute();
+
+    header("location:kaline.php");
+
+
+?>
+
+
+
+

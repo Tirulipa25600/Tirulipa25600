@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro3</title>
+</head>
+
+<script>
+
+    function cadastrar(){
+        const nome = document.getElementById("nome").value;
+        const idade = document.getElementById("idade").value;
+        const email = document.getElementById("email").value;
+        const rg = document.getElementById("rg").value;
+        const cpf = document.getElementById("cpf").value;
+        const cep = document.getElementById("cep").value;
+        const bairro = document.getElementById("bairro").value;
+        const rua = document.getElementById("rua").value;
+        const cidade = document.getElementById("cidade").value;
+        const uf = document.getElementById("uf").value;
+
+        console.log(idade, email, rg, cpf, cep, rua, bairro, cidade, uf);
+        
+        document.getElementById("resultado").innerHTML = texto;
+           
+    }
+</script>
+<body>
+    <form action="">
+   <h2> Nome <input type="text" id="nome"/>
+    Idade <input type="text" id="idade"/>
+    Email <input type="text" id="email"/></h2>
+
+   <h2> RG <input type="text" id="rg"/>
+    CPF <input type="text" id="cpf"/></h2>
+
+   <h2> CEP <input type="text" id="cep"/>
+    Rua <input type="text" id="rua"/>
+    Bairro <input type="text" id="bairro"/>
+    Cidade <input type="text" id="cidade"/>
+    UF <input type="text" id="uf"/>
+</h2>
+    <input type="button" onclick="cadastrar()" value="Enviar"></input>
+    <h1>Seu Cadastro ficou assim: <span id="resultado"></span></h1>
+</br>
+</form>
+</body>
+</html>
